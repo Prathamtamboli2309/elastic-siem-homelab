@@ -103,6 +103,7 @@ Multiple endpoints forwarding logs → real SOC-like environment.
 - Restart PC
 
 **Step 3 — Verify Docker**
+
 Open PowerShell (Admin):
 
 docker --version
@@ -151,16 +152,19 @@ esdata:
 text
 
 **Step 3 — Start the Elastic Stack**
+
 docker compose up -d
 
 text
 
 **Step 4 — Verify containers**
+
 docker ps
 
 text
 
 **Step 5 — Open Kibana**
+
 Navigate to: [http://localhost:5601](http://localhost:5601)
 
 ---
@@ -170,11 +174,13 @@ Navigate to: [http://localhost:5601](http://localhost:5601)
 **Step 1 — Open PowerShell as Administrator**
 
 **Step 2 — Go to your project folder**
+
 cd elastic-siem
 
 text
 
 **Step 3 — Generate Enrollment Token**
+
 docker exec -it elasticsearch bin/elasticsearch-create-enrollment-token -s kibana
 
 text
@@ -183,20 +189,25 @@ Copy the token displayed.
 Paste it into the Kibana setup page in your browser.
 
 **Step 4 — Get Inside Kibana Container**
+
 docker exec -it kibana /bin/bash
 
 text
 
 **Step 5 — Run Kibana Verification Code Command**
+
 bin/kibana-verification-code
 
 text
+
 Copy the 6-digit code and enter it on the Kibana verification page.
 
 **Step 6 — Get the Elasticsearch Password if Needed**
+
 docker logs elasticsearch | Select-String "password"
 
 text
+
 Use the displayed password for the `elastic` user when prompted.
 
 ---
